@@ -1,16 +1,15 @@
+from models.request import TripRequest
+
 def main():
-    print("=" * 40)
-    print(" Welcome to AI Travel Planner ")
-    print("=" * 40)
-    print()
-    print("This application will help plan your trips using AI.")
-    print()
-    print("Course Progress")
-    print("✓ Project Created")
-    print("✓ uv Configured")
-    print("✗ AI Agent (Coming Soon)")
-    print("✗ Tools (Coming Soon)")
-    print("✗ Multi-Agent Workflow (Coming Soon)")
+    trip = TripRequest(
+        destination="Japan",
+        days=5,        # try a negative number -> validation error
+        budget=100000,  # try a negative number -> validation error
+        travel_style="Luxury"
+    )
+    #print(trip)
+    #print(trip.model_dump())          # convert to dictionary
+    print(trip.model_dump_json(indent=2))  # convert to JSON
 
 if __name__ == "__main__":
     main()
